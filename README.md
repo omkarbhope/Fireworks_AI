@@ -35,6 +35,41 @@ The application consists of a front-end and several back-end services that handl
 - If the dates are mismatched - Invalid date error is thrown
 - If the ID is expired  - Expired ID error is thrown.
 
+# Design Rationale
+
+## Choice of Technology Stack
+
+### Frontend (HTML/CSS/JavaScript)
+- **Why chosen**: For their simplicity and broad support across all web browsers, making the application easily accessible and enhancing user-friendliness.
+
+### Backend (Python/FastAPI)
+- **Why chosen**: Python is favored for its simplicity and robust library ecosystem. FastAPI is selected for its high performance and ease of building APIs with asynchronous capabilities, crucial for efficiently managing I/O-bound tasks such as network calls.
+
+### Libraries (httpx and backoff)
+- **Why chosen**: httpx supports asynchronous requests vital for making concurrent API calls to Fireworks AI, thus enhancing throughput and responsiveness. The backoff library is crucial for implementing retry logic, improving the application's robustness against transient network issues or API failures.
+
+## API Call Strategy
+
+- **Model Used**: llama-v3p2-11b-vision-instruct model from Fireworks AI.
+- **Reason**: It allows for robust extraction of document features, thanks to its pre-trained capabilities on a wide variety of document types.
+- **Implementation**: Making multiple API calls (five times) and using the most common results to mitigate the effects of potential inaccuracies in AI-based extraction, ensuring higher reliability of the parsed data.
+
+## Error Handling and Data Verification
+
+### Date Formatting and Validation
+- **Approach**: Converting dates to a common format (MM/DD/YYYY) and verifying them against user inputs are critical for maintaining data integrity and ensuring the accuracy of information.
+
+### Error-specific Feedback
+- **Approach**: Providing detailed errors like 'Invalid date' or 'Expired ID' helps users understand exactly what went wrong, enhancing user experience and trust in the application.
+
+# Trade-offs
+
+## Performance vs. Accuracy
+- **Details**: Repeated API calls increase the chances of correct data extraction but at the cost of increased response time and resource utilization. This tradeoff is considered acceptable given the importance of accuracy in identity verification.
+- **Countermeasure**: Asynchronous execution helps mitigate some performance costs, but complexity increases with the management of asynchronous tasks.
+
+## Simplicity vs. Feature Richness
+- **Details**: The frontend is kept simple to reduce load times and dependency issues, which may limit advanced user interactions or more dynamic content. This choice prioritizes accessibility and ease of use over more complex functionalities.
 
 ## Requirements
 To run this project, you will need the following:
