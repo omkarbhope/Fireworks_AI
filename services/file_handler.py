@@ -13,6 +13,6 @@ def encode_image(file_path: str) -> str:
     with open(file_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
-def load_api_key(file_path='config.txt'):
+def load_api_key(file_path='config.txt') -> str:
     with open(file_path, 'r') as file:
         return file.read().strip()
