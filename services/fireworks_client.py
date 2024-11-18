@@ -2,6 +2,7 @@
 import fireworks.client
 from pydantic import BaseModel
 from typing import Dict
+from file_handler import load_api_key
 
 class Result(BaseModel):
     document_type: str
@@ -13,7 +14,8 @@ class Result(BaseModel):
     address: str
 
 def extract_document_details(image_base64: str) -> Dict:
-    fireworks.client.api_key = "fw_3ZeWtyXbwX7xTVs63XAAdbX6"
+    api_key = load_api_key()
+    fireworks.client.api_key = api_key
     response = fireworks.client.ChatCompletion.create(
         model="accounts/fireworks/models/llama-v3p2-11b-vision-instruct",
         response_format={"type": "json_object", "schema": Result.model_json_schema(ref_template='default')},
