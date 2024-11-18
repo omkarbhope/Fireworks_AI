@@ -1,0 +1,116 @@
+/* Base settings for a dark theme */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+.hidden {
+    display: none;
+}
+
+.loader {
+    border: 16px solid #2c3e50;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+section {
+    text-align: center;
+    padding: 30px; /* Increased padding for better spacing */
+    margin: auto; /* Auto margins for horizontal centering */
+    background-color: #1e272e;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75); /* Slightly darker shadow for more depth */
+    width: 80%; /* Adjusted width for better screen utilization */
+    max-width: 800px; /* Increased maximum width for larger displays */
+}
+
+input, button {
+    margin-top: 12px;
+    padding: 12px;
+    width: calc(100% - 24px); /* Full width minus padding */
+    background: #b5b5b5;
+    border: 2px solid #555;
+    color: #fff;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+button {
+    cursor: pointer;
+    background-color: #3498db;  /* Blue background */
+    color: white;  /* White text */
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 15px 30px;
+    outline: none;
+    transform: scale(1.05); /* Make buttons larger initially */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Ensures smooth scaling and background transition */
+}
+
+button:hover, button:focus {
+    background-color: #2980b9; /* Darker blue on hover/focus */
+    transform: scale(1.1); /* Increase size more on hover/focus */
+    box-shadow: 0 0 15px #2ecc71; /* Add glow effect on hover */
+    color: #ffffff; /* Re-assert text color for clarity */
+}
+
+.welcome-img, .results-img {
+    max-width: 100%;
+    height: auto;
+    width: 80%; /* Increase default width to make images larger */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block; /* Ensures images are centered in their container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loader-container {
+    width: 100%;
+    height: 30px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.loader-bar {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 5px;
+    width: 0%; /* Start width - will be animated by JS */
+    transition: width 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    section {
+        width: 95%; /* Adjusted for smaller screens */
+        padding: 20px; /* Smaller padding on smaller devices */
+        margin: 20px auto; /* Maintain centering with automatic margins */
+    }
+
+    input, button {
+        width: 100%; /* Full width for smaller screens */
+        padding: 15px; /* Larger padding for better touch interaction */
+    }
+
+    .welcome-img, .results-img {
+        width: 95%; /* Increase image size on smaller screens for better visibility */
+    }
+}
