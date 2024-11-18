@@ -1,4 +1,3 @@
-/* Base settings for a dark theme */
 body {
     background-color: #121212;
     color: #e0e0e0;
@@ -7,8 +6,8 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    justify-content: center;
 }
 
 .hidden {
@@ -31,19 +30,19 @@ body {
 
 section {
     text-align: center;
-    padding: 30px; /* Increased padding for better spacing */
-    margin: auto; /* Auto margins for horizontal centering */
+    padding: 30px;
+    margin: auto;
     background-color: #1e272e;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75); /* Slightly darker shadow for more depth */
-    width: 80%; /* Adjusted width for better screen utilization */
-    max-width: 800px; /* Increased maximum width for larger displays */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75);
+    width: 80%;
+    max-width: 800px;
 }
 
 input, button {
     margin-top: 12px;
     padding: 12px;
-    width: calc(100% - 24px); /* Full width minus padding */
+    width: calc(100% - 24px);
     background: #b5b5b5;
     border: 2px solid #555;
     color: #fff;
@@ -53,31 +52,31 @@ input, button {
 
 button {
     cursor: pointer;
-    background-color: #3498db;  /* Blue background */
-    color: white;  /* White text */
+    background-color: #3498db;
+    color: white;
     border: none;
     border-radius: 6px;
     font-size: 16px;
     padding: 15px 30px;
     outline: none;
-    transform: scale(1.05); /* Make buttons larger initially */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Ensures smooth scaling and background transition */
+    transform: scale(1.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 button:hover, button:focus {
-    background-color: #2980b9; /* Darker blue on hover/focus */
-    transform: scale(1.1); /* Increase size more on hover/focus */
-    box-shadow: 0 0 15px #2ecc71; /* Add glow effect on hover */
-    color: #ffffff; /* Re-assert text color for clarity */
+    background-color: #2980b9;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #2ecc71;
+    color: #ffffff;
 }
 
 .welcome-img, .results-img {
     max-width: 100%;
     height: auto;
-    width: 80%; /* Increase default width to make images larger */
+    width: 80%;
     border-radius: 10px;
     margin-bottom: 20px;
-    display: block; /* Ensures images are centered in their container */
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
@@ -94,23 +93,23 @@ button:hover, button:focus {
     height: 100%;
     background-color: #3498db;
     border-radius: 5px;
-    width: 0%; /* Start width - will be animated by JS */
+    width: 0%;
     transition: width 0.5s ease-in-out;
 }
 
 @media (max-width: 768px) {
     section {
-        width: 95%; /* Adjusted for smaller screens */
-        padding: 20px; /* Smaller padding on smaller devices */
-        margin: 20px auto; /* Maintain centering with automatic margins */
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
     }
 
     input, button {
-        width: 100%; /* Full width for smaller screens */
-        padding: 15px; /* Larger padding for better touch interaction */
+        width: 100%;
+        padding: 15px;
     }
 
     .welcome-img, .results-img {
-        width: 95%; /* Increase image size on smaller screens for better visibility */
+        width: 95%;
     }
 }
